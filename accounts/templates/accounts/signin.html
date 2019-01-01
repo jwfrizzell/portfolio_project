@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+ {% if error %}
+	<div class="alert alert-danger text-center">
+	  <strong>{{error}}!</strong> 
+	</div>
+{% endif %}
+
+<form class='form-horizontal' method='POST' action="{% url 'signin' %}">
+	<h4>Sign In</h4>
+	{% csrf_token %}
+	<div class="form-group">
+		<div class="container" >
+			<div class="row text-left justify-content-center">
+				<div class='col-xs-6'>
+					<label class='mb-0' for="username">Username:</label>
+					<input class="form-control type="text" name="username" id="username" placeholder="Username" maxlength='25'/>
+				</div>
+			</div>
+			<div class="row text-left justify-content-center">
+				<div class='col-xs-6'>
+					<label class='mb-0' for="password" >Password:</label>
+					<input class="form-control"  type="password" name="password" id="password" placeholder="Password" maxlength="50" />
+				</div>
+			</div>
+			<div class="row justify-content-center mt-2">
+				<div class='col-xs-6'>
+					<input class='btn btn-primary btn-sm' type="submit" value="Sign In"/>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</form>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if error %}
+	<div class="alert alert-danger text-center">
+	  <strong>{{error}}!</strong> 
+	</div>
+{% endif %}
+
+<form class='form-horizontal' method='POST' action="{% url 'signup' %}">
+	<h4>Sign Up!</h4>
+	{% csrf_token %}
+	<div class="form-group">
+		<div class="container" >
+			<div class="row text-left justify-content-center">
+				<div class='col-xs-6'>
+					<label class='mb-0' for="username">Username:</label>
+					<input class="form-control type="text" name="username" id="username" placeholder="Username" maxlength='25'/>
+				</div>
+				<div class='col-xs-6 ml-2'>
+					<label class='mb-0' for="email">Email:</label>
+					<input class="form-control type="text" name="email" id="email" placeholder="Email" maxlength='120'/>
+				</div>
+			</div>
+		
+			<div class="row text-left justify-content-center">
+				<div class='col-xs-6'>
+					<label class='mb-0' for="firstname">First Name:</label>
+					<input class="form-control type="text" name="firstname" id="firstname" placeholder="First Name" maxlength='30'/>
+				</div>
+				<div class='col-xs-6 ml-2'>
+					<label class='mb-0' for="lastname">Last Name:</label>
+					<input class="form-control type="text" name="lastname" id="lastname" placeholder="Last Name" maxlength='50'/>
+				</div>
+			</div>
+			<div class="row text-left justify-content-center">
+				<div class='col-xs-6'>
+					<label class='mb-0' for="password" >Password:</label>
+					<input class="form-control"  type="password" name="password" id="password" placeholder="Password" maxlength="50" />
+				</div>
+				<div class='col-xs-6 ml-2'>
+					<label class='mb-0' for="confirmpassword">Confirm Password</label>
+					<input class="form-control" type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm password" />
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class='col-xs-6'>
+					<input class='btn btn-primary btn-sm mt-1' style="width: 200px" type="submit" value="Sign Up!"/>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</form>
+{% endblock %}
