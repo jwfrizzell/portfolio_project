@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import date
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Product(models.Model):
@@ -10,8 +11,8 @@ class Product(models.Model):
 	icon = models.ImageField(upload_to='images/')
 	image = models.ImageField(upload_to='images/')
 	body = models.TextField()
-
-
+	hunter = models.ForeignKey(User, on_delete=models.cascade)
+	
 	def pub_date_pretty(self):
 		return self.pub_date.strftime('%b %e %Y')
 
