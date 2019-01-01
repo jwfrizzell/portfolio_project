@@ -11,8 +11,8 @@ class Product(models.Model):
 	icon = models.ImageField(upload_to='images/')
 	image = models.ImageField(upload_to='images/')
 	body = models.TextField()
-	hunter = models.ForeignKey(User, on_delete=models.cascade)
-	
+	hunter = models.ForeignKey(User, on_delete=models.CASCADE)
+
 	def pub_date_pretty(self):
 		return self.pub_date.strftime('%b %e %Y')
 
