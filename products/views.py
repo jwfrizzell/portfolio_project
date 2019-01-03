@@ -35,7 +35,7 @@ def create(request):
 		return render(request,'products/create.html')
 
 
-@login_required
+@login_required(login_url="/accounts/signup")
 def detail(request,product_id):
 	product = get_object_or_404(Product,pk=product_id)
 	return render(request,'products/detail.html',{"product": product})

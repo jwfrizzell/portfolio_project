@@ -7,7 +7,9 @@
 	<div class="card mb-4 shadow-sm">
 		<a class="mt-3" href="{% url 'detail' product.id %}"><p class='card-text text-center'>{{product.title}}</p></a>
 		<hr/>
-		<img class="car-image-top" src="{{product.image.url}}" width="347px" height="255px" />
+		<a class="mt-3" href="{% url 'detail' product.id %}">
+			<img class="car-image-top" src="{{product.image.url}}" width="347px" height="255px" />
+		</a>
 		<hr/>
   		<div class="card-body">
     		<p class="card-text">{{ product.summary }}</p>
